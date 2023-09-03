@@ -1,0 +1,136 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h2>
+              <form class="form" [formGroup]="registerForm" (ngSubmit)="AddUser() " autocomplete="off">
+
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-group">
+                        <label for = "Full_Name" class="form-label" >Full Name</label>  
+                        <input type="text" formControlName="full_name" id="Full_Name" class="form-control" placeholder="Enter Full Name" />
+                         <!-- <div *ngIf="registerForm.controls.full_name.invalid && registerForm.controls.full_name.touched"> -->
+                            <!-- <div class="field-error-message alert alert-danger" *ngIf="registerForm.controls.full_name.touched &&registerForm.controls.full_name.hasError('required')"> -->
+                             <div class="field-error-message alert alert-danger" *ngIf="registerForm.controls.full_name &&registerForm.controls.full_name.invalid &&registerForm.controls.full_name.touched ">
+                                Full Name is invalid.
+                            </div>
+                        <!-- </div> -->
+
+                            <!-- <div class="field-error-message alert alert-danger" *ngIf="registerForm.controls.full_name.dirty && registerForm.controls.full_name.hasError('checkName')">
+                                Full Name cannot start with space /numbers
+                            </div> -->
+                            
+                        </div>
+                        
+  
+                  </div>
+                   <div class="col-md-6 mb-4">
+                          
+                          <div class="form-group">
+                            <label for="Password" class="form-label">Unique Code</label>
+                            <input type="text" id="Password" formControlName ="password" class="form-control"placeholder="Enter Unique Code to regenerate the password if forgotten">
+                            <!-- <div class="field-error-message alert alert-danger">
+                                Password must contain special character,number,upper and lowercase alphabets.
+                            </div> -->
+
+                          </div>
+                    
+                   </div> 
+                    <!-- <div class="form-outline">
+                      <input type="text" id="lastName" class="form-control form-control-lg" />
+                      <label class="form-label" for="lastName">Last Name</label>
+                    </div>        d-flex align-items-center           form-outline datepicker w-100
+   -->
+                  </div>
+                
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 ">
+  
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" formControlName="email_id" class="form-control" id="email" placeholder="Enter Email ID" />
+                        <div class="field-error-message alert alert-danger" *ngIf="registerForm.controls.email_id && registerForm.controls.email_id.invalid && registerForm.controls.email_id.touched ">
+                            Email Address is invalid.
+                        </div>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <label for="gender" class="form-label">Gender</label>
+                    <br>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="femaleGender" formControlName="gender"
+                          value="female" />
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                      </div>
+    
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                        formControlName="gender" value="male" />
+                        <label class="form-check-label" for="maleGender">Male</label>
+                      </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-group">
+                              <label class="form-label" for="Course">Course</label>
+                          <select name="course" id ="course" formControlName="course_id" class="form-control">
+                            <option disabled hidden selected value = "">Select Course</option>
+                            <option value="PG-DAC">PG-DAC</option>
+                            <option value="PG-DBDA">PG-DBDA</option>
+                            <option value="PG-DESD">PG-DESD</option>
+                            <option value="PG-DITISS" selected>PG-DITISS</option>
+                          </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <div class="form-outline">
+                                <label class="form-label" for="Contact_No">Contact Number</label>
+                                <input type="tel" id="Contact_No" class="form-control" formControlName="contact_number" placeholder="Enter Contact Number"/>
+                                <div class="field-error-message alert alert-danger" *ngIf="registerForm.controls.contact_number && registerForm.controls.contact_number.invalid && registerForm.controls.contact_number.touched ">
+                                    Contact Number is invalid.
+                                </div>
+                            </div>
+          
+                        </div>
+                  </div>
+                </div>
+                
+                
+                <div class="justify-content-center d-flex">
+                    <input class="btn btn-primary btn-lg " type="submit"[disabled]="!registerForm.valid" value="Register" />
+                </div>
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login" class="fw-bold text-body"><u>Login Here</u></a> </p>
+                <div *ngIf="successMessage!= null">
+                    <h5 class="text-success" style="text-align:center">
+                        {{successMessage}}
+                    </h5>
+                </div>
+            
+                <br>
+                <div *ngIf="errorMessage!= null">
+                    <h5 class="text-danger" style="text-align: center">
+                        {{errorMessage}}
+                    </h5>
+                </div>
+
+             
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
